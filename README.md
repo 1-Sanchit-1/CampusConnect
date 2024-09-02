@@ -1,7 +1,3 @@
-Here's a concise and structured README for your MERN project:
-
----
-
 # Campus Connect
 
 ## Overview
