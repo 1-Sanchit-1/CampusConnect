@@ -13,7 +13,13 @@ PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://campus-connect-server-flame.vercel.app/"],
+    methods: ("POST", "Get"),
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 
 //api endpoints
@@ -28,41 +34,9 @@ db_connect
   })
   .catch((err) => console.error("Server startup error:", err));
 
-app.post("/test", async (req, res) => {
-  const user = new User();
-  user.fname = req.body.fname;
-  user.lname = req.body.lname;
-  user.email = req.body.email;
-  user.phone = req.body.phone;
-  user.course = req.body.course;
-  user.password = req.body.password;
-  const doc = await user.save();
-  console.log(req.body);
-  console.log(doc);
-  if (doc.fname !== "" && doc.email !== "" && doc.password !== "") {
-    res.json({ Status: true });
-  } else {
-    res.json({ Status: false });
-  }
+app.get("/", (req, res) => {
+  res.send("Server Running !!");
 });
-
-// app.post("/cont", async (req, res) => {
-//   const contact = new Contact();
-//   contact.fname = req.body.fname;
-//   contact.lname = req.body.lname;
-//   contact.email = req.body.email;
-//   contact.phone = req.body.phone;
-//   contact.message = req.body.message;
-//   const doc = await contact.save();
-//   console.log(req.body);
-//   console.log(doc);
-//   if (doc.fname !== "" && doc.email !== "" && doc.message !== "") {
-//     res.json({ Status: true });
-//   } else {
-//     res.json({ Status: false });
-//   }
-// });
-
 app.post("/student_profile", async (req, res) => {
   const UserEmail = req.body.email;
   const data = await User.findOne({
