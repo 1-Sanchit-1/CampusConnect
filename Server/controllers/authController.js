@@ -91,7 +91,7 @@ const login = async (req, res) => {
         .status(400)
         .json({ message: "Password must be at least 8 characters long" });
     }
-    console.log(email, password);
+    // console.log(email, password);
     if (email === "san@gmail.com" && password === "1020304050") {
       return res.status(200).json({
         email: email,
