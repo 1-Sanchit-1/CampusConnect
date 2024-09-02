@@ -12,14 +12,14 @@ require("dotenv").config();
 PORT = process.env.PORT || 5000;
 
 const app = express();
+let corsOptions = {
+  origin: [
+    "http://localhost:5000",
+    "https://campus-connect-server-flame.vercel.app/",
+  ],
+};
 
-app.use(
-  cors({
-    origin: ["https://campus-connect-server-flame.vercel.app/"],
-    methods: ("POST", "Get"),
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 //api endpoints
