@@ -1,0 +1,6 @@
+#csvbg {
+  background-image: url(/src/image/stacked-waves-haikei.png);
+}
+body::-webkit-scrollbar {
+  display: none;
+}
