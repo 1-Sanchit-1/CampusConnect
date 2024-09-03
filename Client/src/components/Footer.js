@@ -103,7 +103,7 @@ export default function Footer() {
           <div className="text-sm text-blueGray-500 font-semibold py-1">
             Copyright © <span id="get-current-year">2015</span>
             <Link
-              to="/"
+              to="https://1-sanchit-1.github.io/site/"
               className="text-blueGray-500 hover:text-gray-800"
               target=""
             >
