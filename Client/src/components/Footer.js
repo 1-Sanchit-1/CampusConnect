@@ -108,7 +108,7 @@ export default function Footer() {
               target=""
             >
               {" "}
-              Indian Institute of Information Technology, Lucknow{" "}
+              code 💻 with ♥️ by S@Nchit{" "}
             </Link>
           </div>
         </div>
