@@ -69,7 +69,7 @@ export default function Student() {
   // Fetch all Students
   const getAllUser = () => {
     axios
-      .get("http://localhost:5000/getUser")
+      .get("https://campus-connect-server-flame.vercel.app/getUser")
       .then((response) => {
         setUser(response.data);
         setSearchResults(response.data);
@@ -91,13 +91,16 @@ export default function Student() {
   // Add students by admin
   const handleSubmitAdd = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/adduser", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(Form),
-      method: "POST",
-    });
+    const response = await fetch(
+      "https://campus-connect-server-flame.vercel.app/api/adduser",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Form),
+        method: "POST",
+      }
+    );
 
     const data = await response.json();
     console.log(data);
@@ -133,7 +136,7 @@ export default function Student() {
       };
 
       axios
-        .post(`http://localhost:5000/update`, {
+        .post(`https://campus-connect-server-flame.vercel.app/update`, {
           email: updatedData.email,
           fname: updatedData.fname,
           lname: updatedData.lname,
@@ -168,7 +171,7 @@ export default function Student() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:5000/delete", {
+        fetch("https://campus-connect-server-flame.vercel.app/delete", {
           method: "POST",
           crossDomain: true,
           headers: {

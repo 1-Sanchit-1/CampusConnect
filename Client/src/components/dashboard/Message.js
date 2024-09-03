@@ -15,7 +15,7 @@ export default function Message() {
   // Fetch all Students
   const getAllUser = () => {
     axios
-      .get("http://localhost:5000/getUserMsg")
+      .get("https://campus-connect-server-flame.vercel.app/getUserMsg")
       .then((response) => {
         setUser(response.data);
         setSearchResults(response.data);
@@ -56,7 +56,7 @@ export default function Message() {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch("http://localhost:5000/msgdeleteall", {
+          fetch("https://campus-connect-server-flame.vercel.app/msgdeleteall", {
             method: "POST",
             crossDomain: true,
             headers: {
@@ -92,7 +92,7 @@ export default function Message() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:5000/msgdelete", {
+        fetch("https://campus-connect-server-flame.vercel.app/msgdelete", {
           method: "POST",
           crossDomain: true,
           headers: {

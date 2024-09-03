@@ -13,7 +13,7 @@ export default function Notification() {
   // Fetch all Students
   const getAllUser = () => {
     axios
-      .get("http://localhost:5000/getUserMsgNoti")
+      .get("https://campus-connect-server-flame.vercel.app/getUserMsgNoti")
       .then((response) => {
         setUser(response.data);
       })

@@ -28,13 +28,16 @@ export default function Profile({ Session, userData, setSession }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/admissionform", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-        method: "POST",
-      });
+      const response = await fetch(
+        "https://campus-connect-server-flame.vercel.app/api/admissionform",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+          method: "POST",
+        }
+      );
 
       const result = await response.json();
       const { status } = result;

@@ -18,7 +18,7 @@ export default function Home() {
   // Fetch all Students
   const getAllUser = () => {
     axios
-      .get("http://localhost:5000/getUser")
+      .get("https://campus-connect-server-flame.vercel.app/getUser")
       .then((response) => {
         setUser(response.data);
       })
@@ -27,7 +27,7 @@ export default function Home() {
   // Fetch bca Students
   const getBtechUser = () => {
     axios
-      .get("http://localhost:5000/getBtechUser")
+      .get("https://campus-connect-server-flame.vercel.app/getBtechUser")
       .then((response) => {
         setuserBtech(response.data);
       })
@@ -36,7 +36,7 @@ export default function Home() {
   // Fetch bcom Students
   const getMtechUser = () => {
     axios
-      .get("http://localhost:5000/getMtechUser")
+      .get("https://campus-connect-server-flame.vercel.app/getMtechUser")
       .then((response) => {
         setuserMtech(response.data);
       })
@@ -45,7 +45,7 @@ export default function Home() {
   // Fetch bba Students
   const getMbaUser = () => {
     axios
-      .get("http://localhost:5000/getMbaUser")
+      .get("https://campus-connect-server-flame.vercel.app/getMbaUser")
       .then((response) => {
         setuserMba(response.data);
       })

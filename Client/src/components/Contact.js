@@ -24,13 +24,16 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/contactus", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-        method: "POST",
-      });
+      const response = await fetch(
+        "https://campus-connect-server-flame.vercel.app/api/contactus",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+          method: "POST",
+        }
+      );
 
       const data = await response.json();
       const { fname, status } = data;

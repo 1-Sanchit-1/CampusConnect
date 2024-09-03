@@ -23,13 +23,16 @@ export default function Sign({ setuserData, setSession }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        "https://campus-connect-server-flame.vercel.app/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -48,7 +51,7 @@ export default function Sign({ setuserData, setSession }) {
       } else if (status && user === "student") {
         setSession(2);
         const userResponse = await fetch(
-          "http://localhost:5000/student_profile",
+          "https://campus-connect-server-flame.vercel.app//student_profile",
           {
             method: "POST",
             headers: {
