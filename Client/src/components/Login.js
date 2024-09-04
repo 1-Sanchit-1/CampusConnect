@@ -140,6 +140,15 @@ export default function Sign({ setuserData, setSession }) {
               />
             </div>
 
+            <div className="text-right my-2">
+              <Link
+                to="/Forgotpassword"
+                className="text-sm font-semibold text-blue-500 hover:text-blue-700  focus:text-blue-700"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+
             <button className="block mt-4 w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-700 focus:bg-blue-700 text-white rounded-lg px-3 py-3 font-semibold">
               LOGIN
             </button>

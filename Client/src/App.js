@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Registration from "./components/Signup";
 import Error_404 from "./components/Error_404";
 import Profile from "./components/Profile";
-
+import Forgotpassword from "./components/Forgotpassword";
 import Dashboard from "./components/Dashboard";
 import Course from "./components/dashboard/Course";
 import Notification from "./components/dashboard/Notification";
@@ -46,6 +46,7 @@ function App() {
               }
             />
             <Route path="/Registration" element={<Registration />} />
+            <Route path="/Forgotpassword" element={<Forgotpassword />} />
 
             <Route
               path="/Profile"
