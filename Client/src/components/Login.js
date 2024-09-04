@@ -34,12 +34,9 @@ export default function Sign({ setuserData, setSession }) {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
       const { status, email, user } = data;
+      // console.log(status, email, user);
       if (status && email === "san@gmail.com" && user === "Admin") {
         setSession(1);
         navigate("/Dashboard");
@@ -51,7 +48,7 @@ export default function Sign({ setuserData, setSession }) {
       } else if (status && user === "student") {
         setSession(2);
         const userResponse = await fetch(
-          "https://campus-connect-server-flame.vercel.app//student_profile",
+          "https://campus-connect-server-flame.vercel.app/student_profile",
           {
             method: "POST",
             headers: {
@@ -60,10 +57,6 @@ export default function Sign({ setuserData, setSession }) {
             body: JSON.stringify({ email: data.email }),
           }
         );
-
-        if (!userResponse.ok) {
-          throw new Error(`HTTP error! status: ${userResponse.status}`);
-        }
 
         const userData = await userResponse.json();
         setuserData(userData);
@@ -91,7 +84,7 @@ export default function Sign({ setuserData, setSession }) {
       setForm({
         email: "",
         password: "",
-      }); // Clears the form fields after submission
+      });
     }
   };
 
