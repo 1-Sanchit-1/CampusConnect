@@ -17,6 +17,7 @@ import Course from "./components/dashboard/Course";
 import Notification from "./components/dashboard/Notification";
 import Student from "./components/dashboard/Student";
 import Message from "./components/dashboard/Message";
+import Formdata from "./components/dashboard/Formdata";
 
 function App() {
   const [Session, setSession] = useState(0);
@@ -79,6 +80,10 @@ function App() {
               <Route
                 path="/Dashboard/Student"
                 element={<Student Session={Session} setSession={setSession} />}
+              />
+              <Route
+                path="/Dashboard/Formdata"
+                element={<Formdata Session={Session} setSession={setSession} />}
               />
               <Route
                 path="/Dashboard/Message"
