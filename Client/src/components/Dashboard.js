@@ -4,7 +4,6 @@ import "../components/css/Dashboard.css";
 import logo from "../image/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Course from "./dashboard/Course";
 
 export default function Dashboard({ Session, setSession }) {
   const navigate = useNavigate();
@@ -86,6 +85,40 @@ export default function Dashboard({ Session, setSession }) {
                       Students
                     </Link>
                   </li>
+
+                  <li>
+                    <Link
+                      to="/Dashboard/formdata"
+                      className="flex bg-white hover:bg-blue-50 rounded-xl font-bold text-sm text-gray-900 py-3 px-4"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 mr-2"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 8.25C12.8284 8.25 13.5 7.57843 13.5 6.75C13.5 5.92157 12.8284 5.25 12 5.25C11.1716 5.25 10.5 5.92157 10.5 6.75C10.5 7.57843 11.1716 8.25 12 8.25ZM12 9.75C13.3923 9.75 14.5 8.6423 14.5 7.25C14.5 5.8577 13.3923 4.75 12 4.75C10.6077 4.75 9.5 5.8577 9.5 7.25C9.5 8.6423 10.6077 9.75 12 9.75Z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5.25 20.25H18.75C19.8277 20.25 20.75 19.3277 20.75 18.25V9.75C20.75 8.6723 19.8277 7.75 18.75 7.75H5.25C4.1723 7.75 3.25 8.6723 3.25 9.75V18.25C3.25 19.3277 4.1723 20.25 5.25 20.25Z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M3.25 7.75H20.75M3.25 15.25H20.75M3.25 12.25H20.75"
+                        />
+                      </svg>
+                      Student Form data
+                    </Link>
+                  </li>
+
                   <li>
                     <Link
                       to="/Dashboard/Message"
@@ -108,6 +141,7 @@ export default function Dashboard({ Session, setSession }) {
                       Messages
                     </Link>
                   </li>
+
                   <li>
                     <Link
                       to="/Dashboard/Notification"
