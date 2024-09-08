@@ -124,10 +124,10 @@ export default function Message() {
               <table className="table table-striped table-hover table-bordered">
                 <thead>
                   <tr>
+                    <th>Full Name</th>
                     <th>Registration Number</th>
                     <th>Score</th>
                     <th>Aadhaar</th>
-                    <th>Father's Name</th>
                     <th>Religion</th>
                     <th>Category</th>
                     <th>Class 12 Percentage</th>
@@ -138,10 +138,10 @@ export default function Message() {
                   {searchResults.length > 0 ? (
                     searchResults.map((usr) => (
                       <tr key="{usr.id}">
+                        <td>{usr.Name}</td>
                         <td>{usr.registrationNumber}</td>
                         <td>{usr.score}</td>
                         <td>{usr.aadhaar}</td>
-                        <td>{usr.Name}</td>
                         <td>{usr.religion}</td>
                         <td>{usr.category}</td>
                         <td>{usr.class12Percentage}</td>
