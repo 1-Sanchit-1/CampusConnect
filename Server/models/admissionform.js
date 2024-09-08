@@ -15,7 +15,7 @@ const admissionSchema = new Schema({
     type: String,
     required: true,
   },
-  fatherName: {
+  Name: {
     type: String,
     required: true,
   },

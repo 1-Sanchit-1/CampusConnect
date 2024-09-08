@@ -7,10 +7,10 @@ import logo from "../image/logo.png";
 export default function Profile({ Session, userData, setSession }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({
+    Name: "",
     registrationNumber: "",
     score: "",
     aadhaar: "",
-    fatherName: "",
     religion: "",
     category: "",
     class12Percentage: "",
@@ -67,10 +67,10 @@ export default function Profile({ Session, userData, setSession }) {
       });
     } finally {
       setForm({
+        Name: "",
         registrationNumber: "",
         score: "",
         aadhaar: "",
-        fatherName: "",
         religion: "",
         category: "",
         class12Percentage: "",
@@ -120,6 +120,15 @@ export default function Profile({ Session, userData, setSession }) {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
             <input
               onChange={handleChange}
+              value={form.Name}
+              name="Name"
+              className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder="Full Name*"
+              required
+            />
+            <input
+              onChange={handleChange}
               value={form.registrationNumber}
               name="registrationNumber"
               className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
@@ -145,15 +154,7 @@ export default function Profile({ Session, userData, setSession }) {
               placeholder="Aadhaar Card Number*"
               required
             />
-            <input
-              onChange={handleChange}
-              value={form.fatherName}
-              name="fatherName"
-              className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="text"
-              placeholder="Father's Name*"
-              required
-            />
+
             <input
               onChange={handleChange}
               value={form.religion}

@@ -36,7 +36,7 @@ export default function Sign({ setuserData, setSession }) {
 
       const data = await response.json();
       const { status, email, user } = data;
-      // console.log(status, email, user);
+      console.log(status, email, user);
       if (status && email === "san@gmail.com" && user === "Admin") {
         setSession(1);
         navigate("/Dashboard");

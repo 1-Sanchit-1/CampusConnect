@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const db_connect = require("./config/dbConfig");
 const User = require("./models/User");
 const Contact = require("./models/Contact");
+const Admission = require("./models/admissionform");
 const authRoute = require("./routes/authRoute");
 const contactRoute = require("./routes/contactRoute");
 const admissionRoute = require("./routes/admissionformRoute");
@@ -37,6 +38,7 @@ db_connect
 app.get("/", (req, res) => {
   res.send("Server Running !!");
 });
+
 app.post("/student_profile", async (req, res) => {
   const UserEmail = req.body.email;
   const data = await User.findOne({
@@ -56,7 +58,7 @@ app.post("/update", async (req, res) => {
       course: req.body.course,
       phone: req.body.phone,
     });
-    console.log(data);
+    // console.log(data);
     if (data !== null) {
       res.json({ status: true });
     } else {
@@ -76,7 +78,7 @@ app.post("/forgot", async (req, res) => {
     const data = await user.updateOne({
       password: req.body.password,
     });
-    console.log(data);
+    // console.log(data);
     if (data !== null) {
       res.json({ status: true });
     } else {
@@ -94,19 +96,19 @@ app.get("/getUser", async (req, res) => {
     .then((user) => res.json(user))
     .catch((err) => res.json("Backend has some problem", err));
 });
-// for find all students  data
+//  find B.Tech data
 app.get("/getBtechUser", async (req, res) => {
   User.find({ course: "B.Tech" })
     .then((user) => res.json(user))
     .catch((err) => res.json("Backend has some problem", err));
 });
-// for find all students  data
+// find M.Tech data
 app.get("/getMtechUser", async (req, res) => {
   User.find({ course: "M.Tech" })
     .then((user) => res.json(user))
     .catch((err) => res.json("Backend has some problem", err));
 });
-// for find all students  data
+// find Mba  data
 app.get("/getMbaUser", async (req, res) => {
   User.find({ course: "Mba" })
     .then((user) => res.json(user))
@@ -116,6 +118,13 @@ app.get("/getMbaUser", async (req, res) => {
 // for find all messages  data
 app.get("/getUserMsg", async (req, res) => {
   Contact.find()
+    .sort({ _id: -1 })
+    .then((user) => res.json(user))
+    .catch((err) => res.json("Backend has some problem", err));
+});
+// for find all admissionformdata
+app.get("/getadmissionformdata", async (req, res) => {
+  Admission.find()
     .sort({ _id: -1 })
     .then((user) => res.json(user))
     .catch((err) => res.json("Backend has some problem", err));
@@ -161,5 +170,35 @@ app.post("/msgdelete", async (req, res) => {
     res.json({ status: true, data: "Message Deleted" });
   } else {
     res.json({ status: false, reason: "No such Message found!" });
+  }
+});
+app.post("/admissionformdelete", async (req, res) => {
+  try {
+    const { registrationNumber } = req.body;
+    const user = await Admission.findOne({
+      registrationNumber: registrationNumber,
+    });
+
+    // If user is not found, return a response indicating no user was found
+    if (!user) {
+      return res.json({ status: false, reason: "No such message found!" });
+    }
+
+    // Delete the user and await the result
+    const result = await user.deleteOne();
+
+    // Check if the deletion was successful and respond accordingly
+    if (result.deletedCount > 0) {
+      res.json({ status: true, message: "Message deleted" });
+    } else {
+      res.json({ status: false, reason: "Failed to delete the message." });
+    }
+  } catch (error) {
+    // Handle any errors that occur during the process
+    console.error("Error in /admissionformdelete:", error);
+    res.status(500).json({
+      status: false,
+      reason: "An error occurred while deleting the message.",
+    });
   }
 });

@@ -3,10 +3,10 @@ const AdmissionModel = require("../models/admissionform");
 const Admission = async (req, res) => {
   try {
     const {
+      Name,
       registrationNumber,
       score,
       aadhaar,
-      fatherName,
       religion,
       category,
       class12Percentage,
@@ -17,7 +17,7 @@ const Admission = async (req, res) => {
       !registrationNumber ||
       !score ||
       !aadhaar ||
-      !fatherName ||
+      !Name ||
       !religion ||
       !category ||
       !class12Percentage ||
@@ -30,10 +30,10 @@ const Admission = async (req, res) => {
     }
 
     const newAdmission = new AdmissionModel({
+      Name,
       registrationNumber,
       score,
       aadhaar,
-      fatherName,
       religion,
       category,
       class12Percentage,
