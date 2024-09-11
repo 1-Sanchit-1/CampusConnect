@@ -1,7 +1,5 @@
-import img1 from "../image/logo.png";
-import btechimg from "../image/Courses/Computer login.gif";
-import mtechimg from "../image/Courses/Spreadsheets.gif";
-import mbaimg from "../image/Courses/Business ethics.gif";
+import img1 from "../image/iiitl2.jpg";
+
 import Button from "@mui/material/Button";
 import "./css/Home.css";
 
@@ -137,11 +135,11 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="bg-white sm:w-[60%] px-5">
+        <div className="bg-white sm:w-[60%] pt-9 mt-7 mr-5">
           <img
+            className="object-cover object-center rounded-full"
+            alt="hero"
             src={img1}
-            alt="Login Images"
-            className="object-cover w-full h-full rounded-full"
           />
         </div>
       </section>
