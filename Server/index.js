@@ -196,9 +196,11 @@ app.post("/admissionformdelete", async (req, res) => {
   } catch (error) {
     // Handle any errors that occur during the process
     console.error("Error in /admissionformdelete:", error);
-    res.status(500).json({
-      status: false,
-      reason: "An error occurred while deleting the message.",
-    });
+    res
+      .status(500)
+      .json({
+        status: false,
+        reason: "An error occurred while deleting the message.",
+      });
   }
 });

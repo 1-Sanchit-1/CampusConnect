@@ -51,7 +51,7 @@ const Registration = () => {
           title: `${fname} added successfully`,
           text: `${fname} added to ${course}.`,
         });
-        navigate("/Sign");
+        navigate("/Login");
       } else {
         Swal.fire({
           icon: "error",
@@ -423,7 +423,7 @@ const Registration = () => {
                       <p className="mt-4">
                         Account Already exist?{" "}
                         <Link
-                          to="/Sign"
+                          to="/Login"
                           className="text-blue-500 hover:text-blue-700 font-semibold"
                         >
                           Login to account

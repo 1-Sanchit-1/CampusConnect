@@ -1,9 +1,8 @@
 import React from "react";
-import images from "../image/About/univer.jpg";
-import Acadmic from "../image/About/Acadmic.jpg";
-import { Link } from "react-router-dom";
+import images from "../image/iiitl.jpg";
+import Acadmic from "../image/iiitl2.jpg";
 
-import campusn from "../image/About/campusn.jpg";
+import campusn from "../image/iiitl3.jpg";
 
 export default function About() {
   return (
@@ -69,7 +68,7 @@ export default function About() {
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-1/2  mb-10 md:mb-0">
               <img
-                className="object-cover object-center rounded "
+                className="object-cover object-center rounded-full"
                 alt="hero"
                 src={Acadmic}
               />
@@ -81,7 +80,7 @@ export default function About() {
           <div className="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-1/2 mb-10 md:mb-0">
               <img
-                className="object-cover object-center rounded "
+                className="object-cover object-center rounded"
                 alt="hero"
                 src={campusn}
               />

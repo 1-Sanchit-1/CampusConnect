@@ -3,14 +3,15 @@ import { Link, useNavigate, Outlet } from "react-router-dom";
 import "../components/css/Dashboard.css";
 import logo from "../image/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default function Dashboard({ Session, setSession }) {
+export default function Dashboard() {
   const navigate = useNavigate();
 
   const handleClick = () => {
     if (window.confirm("Are you want to Logout!")) {
-      setSession(0);
+      // setSession(0);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
       navigate("/");
     }
   };

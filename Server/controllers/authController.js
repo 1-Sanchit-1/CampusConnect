@@ -92,9 +92,11 @@ const login = async (req, res) => {
         .json({ message: "Password must be at least 8 characters long" });
     }
     // console.log(email, password);
+    // Generate JWT token
     if (email === "san@gmail.com" && password === "1020304050") {
       return res.status(200).json({
         email: email,
+        token: "token",
         message: "Login successful",
         status: true,
         user: "Admin",
@@ -112,9 +114,7 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Incorrect password" });
     }
 
-    // Generate JWT token
     const token = createToken(user._id);
-
     res.status(200).json({
       message: "Login successful",
       status: true,

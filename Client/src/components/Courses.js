@@ -1,7 +1,7 @@
 import React from "react";
-import bcaimg from "../image/Courses/Computer login.gif";
-import bcomimg from "../image/Courses/Spreadsheets.gif";
-import bbaimg from "../image/Courses/Business ethics.gif";
+import btechimg from "../image/Courses/Computer login.gif";
+import Mtechimg from "../image/Courses/Spreadsheets.gif";
+import Mbaimg from "../image/Courses/Business ethics.gif";
 
 export default function Courses() {
   return (
@@ -11,7 +11,7 @@ export default function Courses() {
           <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
             <h3 className="mb-3 text-xl font-bold text-blue-600">B.Tech</h3>
             <div className="relative">
-              <img className="w-full rounded-xl" src={bcaimg} alt="Colors" />
+              <img className="w-full rounded-xl" src={btechimg} alt="Colors" />
 
               <p className="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
                 Computer Science
@@ -83,7 +83,7 @@ export default function Courses() {
           <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
             <h3 className="mb-3 text-xl font-bold text-blue-600">M.Tech</h3>
             <div className="relative">
-              <img className="w-full rounded-xl" src={bcomimg} alt="Colors" />
+              <img className="w-full rounded-xl" src={Mtechimg} alt="Colors" />
               <p className="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
                 Masters
               </p>
@@ -160,7 +160,7 @@ export default function Courses() {
           <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
             <h3 className="mb-3 text-xl font-bold text-blue-600">MBA</h3>
             <div className="relative">
-              <img className="w-full rounded-xl" src={bbaimg} alt="Colors" />
+              <img className="w-full rounded-xl" src={Mbaimg} alt="Colors" />
               <p className="absolute top-0 bg-yellow-300 text-gray-800 font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
                 Management
               </p>

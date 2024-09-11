@@ -1,5 +1,7 @@
-import img1 from "../image/home.jpg";
-
+import img1 from "../image/logo.png";
+import btechimg from "../image/Courses/Computer login.gif";
+import mtechimg from "../image/Courses/Spreadsheets.gif";
+import mbaimg from "../image/Courses/Business ethics.gif";
 import Button from "@mui/material/Button";
 import "./css/Home.css";
 
@@ -8,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import CountUp from "react-countup";
 import axios from "axios";
 import { TypeAnimation } from "react-type-animation";
+import Courses from "./Courses";
+import About from "./About";
 
 export default function Home() {
   const [user, setUser] = useState([]);
@@ -24,7 +28,7 @@ export default function Home() {
       })
       .catch((err) => console.log("Error fetching users:", err));
   };
-  // Fetch bca Students
+  // Fetch getBtechUser Students
   const getBtechUser = () => {
     axios
       .get("https://campus-connect-server-flame.vercel.app/getBtechUser")
@@ -33,7 +37,7 @@ export default function Home() {
       })
       .catch((err) => console.log("Error fetching users:", err));
   };
-  // Fetch bcom Students
+  // Fetch getMtechUser Students
   const getMtechUser = () => {
     axios
       .get("https://campus-connect-server-flame.vercel.app/getMtechUser")
@@ -42,7 +46,6 @@ export default function Home() {
       })
       .catch((err) => console.log("Error fetching users:", err));
   };
-  // Fetch bba Students
   const getMbaUser = () => {
     axios
       .get("https://campus-connect-server-flame.vercel.app/getMbaUser")
@@ -52,7 +55,6 @@ export default function Home() {
       .catch((err) => console.log("Error fetching users:", err));
   };
 
-  // get all data function call
   useEffect(() => {
     getAllUser();
     getBtechUser();
@@ -60,25 +62,21 @@ export default function Home() {
     getMbaUser();
   }, []);
 
-  // count all students
   if (user.length > 0) {
     var lenAll = user.length;
   } else {
     lenAll = 0;
   }
-  // count bca students
   if (userBtech.length > 0) {
     var lenBtech = userBtech.length;
   } else {
     lenBtech = 0;
   }
-  // count bcom students
   if (userMtech.length > 0) {
     var lenMtech = userMtech.length;
   } else {
     lenMtech = 0;
   }
-  // count bba students
   if (userMba.length > 0) {
     var lenMba = userMba.length;
   } else {
@@ -87,6 +85,22 @@ export default function Home() {
 
   return (
     <>
+      <div className="flex flex-col justify-center items-center py-4 bg-white-100">
+        <div className="text-center text-gray-700">
+          <p className="text-2xl font-bold">
+            <marquee direction="left">
+              {" "}
+              Indian Institute of Information Technology, Lucknow
+            </marquee>
+          </p>
+          <p className="text-xl font-semibold mt-2">
+            <marquee direction="right">
+              {" "}
+              भारतीय सूचना प्रौद्योगिकी संस्थान, लखनऊ
+            </marquee>
+          </p>
+        </div>
+      </div>{" "}
       <section className="min-h-screen  bg-white flex md:flex-row flex-col w-screen gap-2 mx-auto">
         <div className=" bg-white  mx-10 my-auto flex-d align-middle justify-center sm:w-[40%]">
           <div className="">
@@ -116,21 +130,50 @@ export default function Home() {
             <h5 className="display-6" style={{ fontSize: "2em" }}>
               We make programming simple & easy to understand.
             </h5>
-            <Link to="/Sign" className="">
+            <Link to="/Login" className="">
               <Button className="my-5 bg-blue-700" variant="contained">
                 Join US
               </Button>
             </Link>
           </div>
         </div>
-        <div className="bg-white sm:w-[60%] px-5 ">
+        <div className="bg-white sm:w-[60%] px-5">
           <img
             src={img1}
             alt="Login Images"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full rounded-full"
           />
         </div>
       </section>
+      <div className=" bg-gray-100 flex flex-col items-center py-10 ">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8 ">
+          <marquee direction="left">
+            {" "}
+            Indian Institute of Information Technology, Lucknow
+          </marquee>
+        </h1>
+
+        <div className="bg-white shadow-lg rounded-lg p-8 sm:w-3/4 w-full max-w-4xl text-center">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
+            Campus Connect
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            The Campus Connect is an admission management platform tailored
+            specifically for students enrolled in B.Tech, M.Tech, and MBA
+            programs. This platform streamlines the admission process, provides
+            administrative control, and ensures secure communication between
+            students and administrators.
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <button className="px-8 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-500 transition duration-300">
+            <Link to="/Login" className="">
+              Explore Admissions
+            </Link>
+          </button>
+        </div>
+      </div>
       <div
         id="csvbg"
         className="h-[130vh]  sm:h-[35vh] bg-cover bg-center grid grid-flow-row  sm:flex gap-5 align-middle justify-around"
@@ -196,8 +239,6 @@ export default function Home() {
             decimal=","
             prefix="M.Tech : "
             suffix=" Students"
-            onEnd={() => console.log("Ended! 👏")}
-            onStart={() => console.log("Started! 💨")}
           >
             {({ countUpRef, start }) => (
               <div>
@@ -276,6 +317,8 @@ export default function Home() {
           </CountUp>
         </div>
       </div>
+      <Courses />
+      <About />
     </>
   );
 }

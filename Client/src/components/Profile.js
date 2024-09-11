@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import LogoutIcon from "@mui/icons-material/Logout";
 import logo from "../image/logo.png";
 
-export default function Profile({ Session, userData, setSession }) {
+export default function Profile() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     Name: "",
@@ -28,16 +28,13 @@ export default function Profile({ Session, userData, setSession }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://campus-connect-server-flame.vercel.app/api/admissionform",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
-          method: "POST",
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/admissionform", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify(form),
+        method: "POST",
+      });
 
       const result = await response.json();
       const { status } = result;
@@ -81,7 +78,8 @@ export default function Profile({ Session, userData, setSession }) {
 
   const handleClick = () => {
     if (window.confirm("Are you sure you want to logout?")) {
-      setSession(0);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
       navigate("/");
     }
   };
@@ -96,11 +94,16 @@ export default function Profile({ Session, userData, setSession }) {
             className="h-12 w-12 rounded-full mr-4"
           />
           <div>
-            <h1 className="text-2xl font-semibold">Welcome to IIIT Lucknow</h1>
-            <h2 className="text-lg">
-              {userData.fname} {userData.lname}
-            </h2>
-            <p>{userData.course}</p>
+            {/* <h1 className="text-2xl font-semibold">Welcome to IIIT Lucknow</h1> */}
+            <p className="text-2xl font-bold">
+              Indian Institute of Information Technology, Lucknow
+            </p>
+            <p className="text-xl font-semibold mt-2">
+              भारतीय सूचना प्रौद्योगिकी संस्थान, लखनऊ
+            </p>
+            <p className="text-sm mt-2">
+              (An Institute of National Importance by the Act of Parliament)
+            </p>
           </div>
         </div>
         <button
@@ -111,7 +114,6 @@ export default function Profile({ Session, userData, setSession }) {
         </button>
       </header>
 
-      {/* Data Submission Form */}
       <div className="p-8 bg-white shadow mt-8 mx-4">
         <h2 className="text-3xl font-semibold text-center mb-6">
           Admission Form

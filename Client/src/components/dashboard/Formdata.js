@@ -124,10 +124,10 @@ export default function Message() {
               <table className="table table-striped table-hover table-bordered">
                 <thead>
                   <tr>
-                    <th>Full Name</th>
                     <th>Registration Number</th>
                     <th>Score</th>
                     <th>Aadhaar</th>
+                    <th>Father's Name</th>
                     <th>Religion</th>
                     <th>Category</th>
                     <th>Class 12 Percentage</th>

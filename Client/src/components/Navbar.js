@@ -7,12 +7,14 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-export default function Navbar({ Session, setSession }) {
-  const navigate = useNavigate();
 
+export default function Navbar({ Session, setIsAuthenticated }) {
+  const navigate = useNavigate();
+  console.log(setIsAuthenticated);
   const handleClick = () => {
     if (window.confirm("Are you want to Logout!")) {
-      setSession(0);
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
       navigate("/");
     }
   };
@@ -67,9 +69,9 @@ export default function Navbar({ Session, setSession }) {
               </div>
 
               <div className="hidden sm:flex sm:items-center">
-                {Session === 0 ? (
+                {setIsAuthenticated ? (
                   <Link
-                    to="/Sign"
+                    to="/Login"
                     className="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4"
                   >
                     Login
@@ -113,7 +115,7 @@ export default function Navbar({ Session, setSession }) {
                 >
                   <ContactPageIcon />{" "}
                 </Link>
-                {Session === 0 ? (
+                {setIsAuthenticated ? (
                   <Link
                     to="/Sign"
                     className="text-gray-800 text-sm font-semibold hover:text-blue-600 mr-4"

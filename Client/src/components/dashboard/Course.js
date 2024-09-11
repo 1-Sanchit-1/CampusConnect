@@ -79,20 +79,6 @@ export default function Course({ Session, setSession }) {
     lenMba = 0;
   }
 
-  const handleClickCourses = () => {
-    if (window.confirm("You have to Logout!")) {
-      alert("You Are logged_out from the system.");
-      setSession(0);
-      navigate("/Courses");
-    }
-  };
-  const handleClickContact = () => {
-    if (window.confirm("You have to Logout!")) {
-      alert("You Are logged_out from the system.");
-      setSession(0);
-      navigate("/Contact");
-    }
-  };
   return (
     <div>
       <div className="px-6 py-8">

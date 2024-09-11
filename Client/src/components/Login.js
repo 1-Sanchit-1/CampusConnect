@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import Login from "../image/login.jpg";
 import userimg from "../image/user.png";
 
-export default function Sign({ setuserData, setSession }) {
+export default function Sign() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -35,10 +35,11 @@ export default function Sign({ setuserData, setSession }) {
       );
 
       const data = await response.json();
-      const { status, email, user } = data;
+      const { status, email, user, token } = data;
       console.log(status, email, user);
       if (status && email === "san@gmail.com" && user === "Admin") {
-        setSession(1);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", user);
         navigate("/Dashboard");
         Swal.fire({
           icon: "success",
@@ -46,7 +47,6 @@ export default function Sign({ setuserData, setSession }) {
           text: "Welcome Admin!",
         });
       } else if (status && user === "student") {
-        setSession(2);
         const userResponse = await fetch(
           "https://campus-connect-server-flame.vercel.app/student_profile",
           {
@@ -58,8 +58,9 @@ export default function Sign({ setuserData, setSession }) {
           }
         );
 
-        const userData = await userResponse.json();
-        setuserData(userData);
+        // const userData = await userResponse.json();
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", user);
         navigate("/Profile");
         Swal.fire({
           icon: "success",
