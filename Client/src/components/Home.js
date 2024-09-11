@@ -268,7 +268,7 @@ export default function Home() {
             separator=","
             decimals={0}
             decimal=","
-            prefix="MBA : "
+            prefix="Mba : "
             suffix=" Students"
             onEnd={() => console.log("Ended! 👏")}
             onStart={() => console.log("Started! 💨")}
